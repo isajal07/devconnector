@@ -13,11 +13,6 @@ const Profile = require('../../models/Profile')
 const validatePostInput = require('../../validation/post')
 
 
-//@route  GET api/posts/test
-//@desc   Test post route
-//@access Public
-router.get('/test', (req, res) => res.json({'msg':'From posts'}))
-
 //@route  GET api/posts
 //@desc   GET posts
 //@access Public
@@ -59,7 +54,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), (req, res) => {
   newPost.save().then(post => res.json(post))
 })
 
-//@route  DELTE api/posts/:id
+//@route  DELETE api/posts/:id
 //@desc   DELETE post
 //@access Private
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {

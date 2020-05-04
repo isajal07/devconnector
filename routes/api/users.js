@@ -13,11 +13,6 @@ const validateLoginInput = require('../../validation/login')
 //Load User Model
 const User = require('../../models/User');
 
-//@route  GET api/users/test
-//@desc   Test users route
-//@access Public
-router.get('/test', (req, res) => res.json({'msg':'From users'}))
-
 //@route  GET api/users/register
 //@desc   Register user
 //@access Public
@@ -53,6 +48,7 @@ router.post('/register', (req, res) => {
             if(err) {
               throw err
             }
+            
             newUser.password = hash;
             newUser.save()
               .then(user => res.json(user))
